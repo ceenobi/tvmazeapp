@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Hero() {
   return (
-    <div className='p-12 bg-gradient-to-r from-huluRed to-huluRedB'>
+    <div className='p-12 bg-gradient-to-r from-huluRed via-huluRedB to-huluDarkB'>
       <div className='mx-auto max-w-6xl xl:max-w-7xl px-2 flex flex-col space-y-4 text-center font-graphik'>
         <h5 className='uppercase font-bold text-zinc-300 mt-16'>
           must see tv shows, now streaming
@@ -12,7 +12,7 @@ export default function Hero() {
           and people.
         </p>
         <a href='https://www.tvmaze.com' target='_blank'>
-          <button className='uppercase font-bold text-black p-3 bg-white w-[170px] text-sm rounded-md mx-auto'>
+          <button className='uppercase font-medium text-black p-3 bg-white w-[170px] text-sm rounded-md mx-auto'>
             Find out more
           </button>
         </a>

@@ -18,7 +18,7 @@ export default function Tvshows() {
             Everything, everywhere, in one place. There's a show for you.
           </p>
           <a href='https://www.tvmaze.com' target='_blank'>
-            <button className='uppercase font-bold text-black p-3 bg-white w-[170px] text-sm rounded-md mx-auto'>
+            <button className='uppercase font-medium text-black p-3 bg-white w-[170px] text-sm rounded-md mx-auto'>
               Find out more
             </button>
           </a>

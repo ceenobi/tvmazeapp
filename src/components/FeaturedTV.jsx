@@ -22,7 +22,7 @@ export default function FeaturedTV({ error, shows, loading }) {
         {error && <p>{error.message}</p>}
         <div className='relative'>
           <div
-            className='flex overflow-x-scroll overflow-y-hidden scroll-smooth'
+            className='flex overflow-x-scroll overflow-y-hidden scroll-smooth scrollbody'
             ref={scrollRef}
           >
             {featuredTv.map((featured) => (

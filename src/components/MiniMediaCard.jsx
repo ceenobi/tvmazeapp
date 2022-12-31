@@ -6,7 +6,7 @@ export default function MiniMediaCard({ id, image, name, genres }) {
     <div>
       <div className='mr-4 mb-2'>
         <Link to={`/tvshow/${id}`}>
-          <div className='w-[275px] lg:w-[300px] h-[170px]'>
+          <div className='w-[230px] lg:w-[260px] h-[170px]'>
             <img
               src={image.original}
               alt={name}

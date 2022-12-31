@@ -22,7 +22,7 @@ export default function AnimationTV({ error, loading, shows }) {
         {error && <p>{error.message}</p>}
         <div className='relative'>
           <div
-            className='flex overflow-x-scroll overflow-y-hidden scroll-smooth'
+            className='flex overflow-x-scroll overflow-y-hidden scroll-smooth scrollbody'
             ref={scrollRef}
           >
             {animationTv.map((drama) => (

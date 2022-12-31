@@ -5,8 +5,8 @@ export default function useScroll() {
   const scroll = (direction) => {
     const { current } = scrollRef
     direction === 'left'
-      ? (current.scrollLeft -= 500)
-      : (current.scrollLeft += 500)
+      ? (current.scrollLeft -= 1000)
+      : (current.scrollLeft += 1000)
   }
 
   return [scroll, scrollRef]

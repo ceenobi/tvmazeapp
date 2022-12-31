@@ -3,4 +3,12 @@
 @tailwind components;
 @tailwind utilities;
 
+.scrollbody {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbody::-webkit-scrollbar {
+  display: none;
+}
+
 

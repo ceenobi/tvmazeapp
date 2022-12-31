@@ -9,13 +9,13 @@ export default function Navbar() {
   const location = useLocation()
 
   const bgStyle =
-    'fixed top-0 z-30 w-full font-graphik transition ease-in-out delay-100 bg-rose-700'
+    'fixed top-0 z-30 w-full font-graphik transition ease-in-out delay-100 bg-slate-100'
   const defaultStyle = 'fixed top-0 z-30 w-full font-graphik bg-transparent'
   const hoverStyle =
-    'hover:bg-slate-700 p-2 rounded-md transition ease-in-out delay-150'
+    'font-medium hover:bg-slate-700 p-2 rounded-md transition ease-in-out delay-150 hover:text-white'
 
   const showNav = () => {
-     window.scrollY >= 60 ? setShowNavbar(true) : setShowNavbar(false)
+    window.scrollY >= 60 ? setShowNavbar(true) : setShowNavbar(false)
   }
 
   useEffect(() => {
@@ -27,9 +27,9 @@ export default function Navbar() {
   })
 
   return (
-    <div className={showNavbar? bgStyle : defaultStyle}>
+    <div className={showNavbar ? bgStyle : defaultStyle}>
       <div className='mx-auto max-w-6xl xl:max-w-7xl px-2 h-14 md:h-20 flex items-center font-graphik'>
-        <div className='block md:hidden z-30 text-white'>
+        <div className='block md:hidden z-30 text-zinc-400'>
           <Hamburger
             toggled={isOpen}
             toggle={setOpen}
@@ -44,25 +44,25 @@ export default function Navbar() {
         >
           TVMAZE
         </NavLink>
-        <div className='hidden md:flex grow mx-10 space-x-4 text-zinc-300 font-bold'>
+        <div className='hidden md:flex grow mx-10 space-x-4 text-zinc-400 font-medium'>
           <NavLink to='/tvshows' className={hoverStyle}>
             TV Shows
           </NavLink>
         </div>
-        <div className='flex space-x-4 font- text-zinc-300 font-bold'>
-          {location.pathname !== '/search' && (
+        {location.pathname !== '/search' && (
+          <div className='flex space-x-4 font- text-zinc-400'>
             <NavLink to='/search' className={hoverStyle}>
               Search
             </NavLink>
-          )}
-          <a
-            href='https://www.tvmaze.com'
-            target='_blank'
-            className='hidden md:flex uppercase font-bold text-white self-center'
-          >
-            Find out more
-          </a>
-        </div>
+            <a
+              href='https://www.tvmaze.com'
+              target='_blank'
+              className='hidden md:flex uppercase font-bold text-zinc-400 self-center'
+            >
+              Find out more
+            </a>
+          </div>
+        )}
       </div>
       {isOpen && <Sidebar isOpen={isOpen} setOpen={setOpen} />}
     </div>

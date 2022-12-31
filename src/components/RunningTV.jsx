@@ -23,7 +23,7 @@ export default function RunningTV({ error, loading, shows }) {
         {error && <p>{error.message}</p>}
         <div className='relative'>
           <div
-            className='flex overflow-x-scroll overflow-y-hidden scroll-smooth'
+            className='flex overflow-x-scroll overflow-y-hidden scroll-smooth scrollbody'
             ref={scrollRef}
           >
             {runningTv.map((running) => (
