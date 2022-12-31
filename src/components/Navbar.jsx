@@ -57,7 +57,11 @@ export default function Navbar() {
             <a
               href='https://www.tvmaze.com'
               target='_blank'
-              className='hidden md:flex uppercase font-bold text-zinc-400 self-center'
+              className={
+                showNavbar
+                  ? 'hidden md:flex uppercase font-bold text-white self-center px-3 p-2 bg-slate-900 border-0'
+                  : 'hidden md:flex uppercase font-bold text-zinc-400 self-center'
+              }
             >
               Find out more
             </a>

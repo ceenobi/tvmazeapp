@@ -98,7 +98,7 @@ export default function TVid() {
             alt={show.name}
             className='w-full h-full md:object-cover'
           />
-          <div className='absolute bottom-0 left-0 w-full h-full bg-gradient-to-r from-indigo-900 opacity-100 z-0' />
+          <div className='absolute bottom-0 left-0 w-full h-full bg-gradient-to-r from-indigo-900 opacity-100' />
           <div className='mx-auto max-w-7xl px-2 absolute inset-0 h-full grid md:grid-cols-6 gap-4 justify-center items-center'>
             <div className='col-span-5'>
               <h1 className='uppercase text-3xl tracking-wider text-zinc-300 font-bold leading-16'>
