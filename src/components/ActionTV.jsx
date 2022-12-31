@@ -29,7 +29,7 @@ export default function ActionTV({ error, loading, shows }) {
               <MiniMediaCard key={action.id} {...action} />
             ))}
           </div>
-          <div className='hidden md:block absolute top-24 w-full'>
+          <div className='hidden md:block absolute top-16 w-full'>
             <div className='flex justify-between items-center'>
               <IoMdArrowDropleftCircle
                 className='text-white cursor-pointer'

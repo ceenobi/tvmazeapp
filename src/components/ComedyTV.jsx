@@ -30,7 +30,7 @@ export default function ComedyTV({ error, loading, shows }) {
               <MiniMediaCard key={drama.id} {...drama} />
             ))}
           </div>
-          <div className='hidden md:block absolute top-24 w-full'>
+          <div className='hidden md:block absolute top-16 w-full'>
             <div className='flex justify-between items-center'>
               <IoMdArrowDropleftCircle
                 className='text-white cursor-pointer'
