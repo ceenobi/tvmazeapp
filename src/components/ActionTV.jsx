@@ -16,7 +16,7 @@ export default function ActionTV({ error, loading, shows }) {
   } else if (error || shows) {
     return (
       <div className='mb-12'>
-        <p className='font-graphik uppercase mb-4 font-bold tracking-wide font-lighter'>
+        <p className='font-graphik uppercase mb-4 font-medium tracking-wide'>
           action
         </p>
         {error && <p>{error.message}</p>}

@@ -17,7 +17,7 @@ export default function Toprated({ error, shows, loading }) {
       <>
         {loading && <Spinner />}
         <Link to='/tvshows'>
-          <p className='font-graphik uppercase mb-4 font-bold tracking-wide font-lighter'>
+          <p className='font-graphik uppercase mb-4 font-medium tracking-wide'>
             Top rated
           </p>
         </Link>

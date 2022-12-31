@@ -18,7 +18,7 @@ export default function MiniMediaCard({ id, image, name, genres }) {
       <div className='px-2 w-full h-24 '>
         <Link to={`/tvshow/${id}`}>
           <>
-            <p className='font-bold font-graphik tracking-wider text-slate-900 text-sm'>
+            <p className='font-medium font-graphik tracking-wider text-slate-900 text-sm'>
               {name}
             </p>
             <p className='font-arial font-light tracking-wide text-slate-700 text-sm'>

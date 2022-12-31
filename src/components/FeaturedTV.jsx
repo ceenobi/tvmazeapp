@@ -15,7 +15,7 @@ export default function FeaturedTV({ error, shows, loading }) {
     return (
       <div className='mb-12'>
         <Link to='/tvshows'>
-          <p className='font-graphik uppercase mb-4 font-bold tracking-wide font-lighter'>
+          <p className='font-graphik uppercase mb-4 font-medium tracking-wide'>
             Featured Tv
           </p>
         </Link>

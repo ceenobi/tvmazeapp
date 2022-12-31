@@ -78,8 +78,8 @@ export default function TVid() {
   }, [modalIsOpen])
 
   const isActive =
-    'uppercase mb-4 font-bold tracking-wide text-zinc-300 bg-huluRedB p-2 rounded-md'
-  const notActive = 'uppercase mb-4 tracking-wide font-bold'
+    'uppercase mb-4 tracking-wide text-zinc-300 bg-huluRedB p-2 rounded-md font-medium'
+  const notActive = 'uppercase mb-4 tracking-wide'
 
   const filterShow = shows.filter(
     (u) => u?.network?.name === show?.network?.name
@@ -173,7 +173,7 @@ export default function TVid() {
                 </p>
               </div>
               <a href={show.officialSite} target='_blank'>
-                <button className='uppercase font-bold text-black py-2 px-3 bg-white w-[150px] text-sm rounded-md mt-4'>
+                <button className='uppercase font-medium text-black py-2 px-3 bg-white w-[150px] text-sm rounded-md mt-4'>
                   visit site
                 </button>
               </a>
@@ -249,7 +249,7 @@ export default function TVid() {
                     </div>
                     <p className='uppercase mb-4 tracking-wide font-lighter'>
                       Season {episode.season}{' '}
-                      <span className='font-bold mx-2'>
+                      <span className='font-medium mx-2'>
                         Episode {episode.number}
                       </span>
                     </p>
@@ -280,7 +280,7 @@ export default function TVid() {
                       />
                     </div>
                     <div>
-                      <p className='uppercase mb-1 tracking-wide font-bold text-sm'>
+                      <p className='uppercase mb-1 tracking-wide font-medium text-sm'>
                         {c.person?.name}
                       </p>
                       <p className='mb-1 tracking-wide'>
@@ -296,9 +296,9 @@ export default function TVid() {
             </ResponsiveMasonry>
           )}
           <hr className='border-[1px] mt-10' />
-          {filterById && (
+          {filterById.length > 0 ? (
             <>
-              <p className='uppercase mb-4 font-bold tracking-wide font-lighter mt-6'>
+              <p className='uppercase mb-4 tracking-wide font-lighter mt-6'>
                 You may also like
               </p>
               <div className='relative'>
@@ -313,6 +313,11 @@ export default function TVid() {
                 <Scrollicon minArrow={minArrow} scroll={scroll} />
               </div>
             </>
+          ) : (
+            <p className='mb-4 tracking-wide mt-6 text-sm'>
+              We currently have no recommedations for{' '}
+              <span className='font-bold uppercase '>{show.name}</span>
+            </p>
           )}
         </div>
       </>
