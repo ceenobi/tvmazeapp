@@ -32,7 +32,7 @@ export default function Toprated({ error, shows, loading }) {
                   className='flex overflow-x-scroll overflow-y-hidden scroll-smooth scrollbody'
                   ref={scrollRef}
                 >
-                  {shuffleTopRated.map((featured) => (
+                  {shuffleTopRated?.map((featured) => (
                     <MiniMediaCard key={featured.id} {...featured} />
                   ))}
                 </div>

@@ -5,7 +5,7 @@ import Toprated from '../components/Toprated'
 import usefetchHook from '../hooks/fetchHook'
 
 export default function Home() {
-   const { error, loading, data: shows } = usefetchHook('showspage=1')
+   const { error, loading, data: shows } = usefetchHook('/shows?page=1')
   return (
     <>
       <Hero />
