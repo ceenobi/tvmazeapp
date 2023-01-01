@@ -78,7 +78,7 @@ export default function TVid() {
   }, [modalIsOpen])
 
   const isActive =
-    'uppercase mb-4 tracking-wide text-zinc-300 bg-huluRedB p-2 rounded-md font-medium'
+    'uppercase mb-4 tracking-wide text-zinc-300 bg-huluDark p-2 rounded-md font-medium'
   const notActive = 'uppercase mb-4 tracking-wide font-medium'
 
   const filterShow = shows?.filter((u) =>
@@ -105,12 +105,12 @@ export default function TVid() {
             className='w-full h-full md:object-cover'
           />
           <div className='absolute bottom-0 left-0 w-full h-full bg-gradient-to-r from-indigo-900 opacity-100' />
-          <div className='mx-auto max-w-7xl px-2 absolute inset-0 h-full grid md:grid-cols-6 gap-4 justify-center items-center'>
+          <div className='mx-auto max-w-6xl xl:max-w-7xl px-2 xl:px-4 absolute inset-0 h-full grid md:grid-cols-6 gap-4 justify-center items-center'>
             <div className='col-span-5'>
               <h1 className='uppercase text-3xl tracking-wider text-zinc-300 font-bold leading-16'>
                 {show.name}
               </h1>
-              <p className='text-sm font-light text-zinc-300 mt-4'>
+              <p className='text-sm text-zinc-300 mt-4'>
                 {show.genres?.join(' · ')}{' '}
                 <span className='font-bold capitalize mx-2'>
                   {show.rating?.average}
@@ -118,7 +118,7 @@ export default function TVid() {
               </p>
               <div className='md:flex items-center text-xs text-zinc-300'>
                 <p
-                  className='font-light mt-4'
+                  className='mt-4'
                   dangerouslySetInnerHTML={{
                     __html: show.summary?.slice(0, 100) + '...',
                   }}
@@ -144,7 +144,7 @@ export default function TVid() {
                       {show.name}
                     </p>
                     <p
-                      className='text-xs font-light text-black-300 mt-2'
+                      className='text-xs text-black-300 mt-2'
                       dangerouslySetInnerHTML={{
                         __html: show.summary,
                       }}
@@ -153,7 +153,7 @@ export default function TVid() {
                 </Modal>
               </div>
 
-              <div className='flex space-x-4 text-sm font-light text-zinc-300 mt-4'>
+              <div className='flex space-x-4 text-sm text-zinc-300 mt-4'>
                 <p>
                   <span className='font-bold capitalize'>Premiered:</span>{' '}
                   {show.premiered}
@@ -168,7 +168,7 @@ export default function TVid() {
                   {show.type}
                 </p>
               </div>
-              <div className='flex space-x-4 text-sm font-light text-zinc-300 mt-4'>
+              <div className='flex space-x-4 text-sm text-zinc-300 mt-4'>
                 <p>
                   <span className='font-bold capitalize'>network:</span>{' '}
                   {show.network?.name}
@@ -186,7 +186,7 @@ export default function TVid() {
             </div>
           </div>
         </div>
-        <div className='mx-auto max-w-7xl px-2 mt-12 font-graphik'>
+        <div className='mx-auto max-w-7xl px-2 xl:px-4 mt-12 font-graphik'>
           <div className='flex space-x-4'>
             <button
               className={`${activeBtn === 'seasons' ? isActive : notActive}`}
@@ -229,7 +229,7 @@ export default function TVid() {
                     </h1>
                     <p className='text-sm mb-2'>{season.premiereDate}</p>
                     <p
-                      className='text-xs font-light'
+                      className='text-xs'
                       dangerouslySetInnerHTML={{
                         __html: season.summary,
                       }}

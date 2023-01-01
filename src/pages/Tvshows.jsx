@@ -10,7 +10,7 @@ export default function Tvshows() {
   return (
     <>
       <div className='p-12 bg-gradient-to-r from-huluDark to-huluDarkB font-graphik'>
-        <div className='mx-auto max-w-6xl  xl:max-w-7xl px-2 flex flex-col space-y-4 text-center'>
+        <div className='mx-auto max-w-6xl xl:max-w-7xl px-2 xl:px-4 flex flex-col space-y-4 text-center'>
           <h5 className='uppercase font-bold text-zinc-300 mt-16'>
             view our collection
           </h5>
@@ -24,7 +24,7 @@ export default function Tvshows() {
           </a>
         </div>
       </div>
-      <div className='mx-auto max-w-6xl  xl:max-w-7xl py-3 px-2 mt-16'>
+      <div className='mx-auto max-w-6xl xl:max-w-7xl py-3 px-2 xl:px-4 mt-16'>
         <h1 className='text-black font-graphik uppercase text-2xl font-medium mb-12'>
           TV Shows
         </h1>

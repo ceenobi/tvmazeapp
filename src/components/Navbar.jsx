@@ -28,7 +28,13 @@ export default function Navbar() {
 
   return (
     <div className={showNavbar ? bgStyle : defaultStyle}>
-      <div className='mx-auto max-w-6xl xl:max-w-7xl px-2 h-14 md:h-20 flex items-center font-graphik'>
+      <div className='mx-auto max-w-6xl xl:max-w-7xl px-2 xl:px-4 h-14 md:h-20 flex justify-between items-center font-graphik'>
+        <NavLink
+          to='/'
+          className='text-3xl text-teal-400 font-bold leading-16 z-30'
+        >
+          TVMAZE
+        </NavLink>
         <div className='block md:hidden z-30 text-zinc-400'>
           <Hamburger
             toggled={isOpen}
@@ -38,19 +44,13 @@ export default function Navbar() {
             label='Show menu'
           />
         </div>
-        <NavLink
-          to='/'
-          className='text-2xl text-teal-400 font-bold leading-16 grow md:grow-0 z-30'
-        >
-          TVMAZE
-        </NavLink>
         <div className='hidden md:flex grow mx-10 space-x-4 text-zinc-400 font-medium'>
           <NavLink to='/tvshows' className={hoverStyle}>
             TV Shows
           </NavLink>
         </div>
         {location.pathname !== '/search' && (
-          <div className='flex space-x-4 font- text-zinc-400'>
+          <div className='hidden md:flex space-x-4 font- text-zinc-400'>
             <NavLink to='/search' className={hoverStyle}>
               Search
             </NavLink>
@@ -59,8 +59,8 @@ export default function Navbar() {
               target='_blank'
               className={
                 showNavbar
-                  ? 'hidden md:flex uppercase font-bold text-white self-center px-3 p-2 bg-slate-900 border-0'
-                  : 'hidden md:flex uppercase font-bold text-zinc-400 self-center'
+                  ? ' uppercase font-bold text-white self-center px-3 p-2 bg-slate-900 border-0'
+                  : 'uppercase font-bold text-zinc-400 self-center'
               }
             >
               Find out more
