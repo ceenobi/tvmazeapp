@@ -41,9 +41,9 @@ export default function Search() {
 
   return (
     <div className='mx-auto max-w-6xl xl:max-w-7xl px-2 xl:px-4 mt-6 md:mt-20 font-graphik'>
-      <div className='relative mt-20 '>
+      <div className='relative mt-20 md:mt-32 '>
         <input
-          className='w-full py-2  text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-[16px] h-10 border-x-0 border-b border-black'
+          className='w-full py-2  text-gray-700 leading-tight focus:outline-none text-[16px] border-b border-black'
           id='search'
           type='text'
           placeholder='Search TV'
@@ -52,7 +52,7 @@ export default function Search() {
         />
         {query.length > 0 && (
           <AiOutlineClose
-            className='cursor-pointer absolute inset-y-10 right-0'
+            className='cursor-pointer absolute inset-y-0 right-0'
             onClick={() => setQuery('')}
           />
         )}
