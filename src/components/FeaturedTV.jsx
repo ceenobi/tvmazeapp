@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom'
 import useScroll from '../hooks/useScroll'
 import MediaCard from './MediaCard'
 import Scrollicon from './Scrollicon'
+import shuffleShow from '../hooks/shuffleShow'
 
 export default function FeaturedTV({ error, shows, loading }) {
-  const featuredTv = shows.filter((show) => show.type === 'Reality')
   const [scroll, scrollRef] = useScroll()
+  const featuredTv = shows.filter((show) => show.type === 'Reality')
+  const shuffleFeaturedTv = shuffleShow(featuredTv, 30)
   const maxArrow = 'hidden md:block absolute top-52 w-full'
 
   if (loading) {
@@ -25,7 +27,7 @@ export default function FeaturedTV({ error, shows, loading }) {
             className='flex overflow-x-scroll overflow-y-hidden scroll-smooth scrollbody'
             ref={scrollRef}
           >
-            {featuredTv.map((featured) => (
+            {shuffleFeaturedTv.map((featured) => (
               <MediaCard key={featured.id} {...featured} />
             ))}
           </div>

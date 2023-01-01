@@ -4,10 +4,12 @@ import { Link } from 'react-router-dom'
 import useScroll from '../hooks/useScroll'
 import MiniMediaCard from './MiniMediaCard'
 import Scrollicon from './Scrollicon'
+import shuffleShow from '../hooks/shuffleShow'
 
 export default function Toprated({ error, shows, loading }) {
   const [scroll, scrollRef] = useScroll()
-  const topRated = shows.filter((show) => show.rating?.average >= 8.8)
+  const topRated = shows.filter((show) => show.rating?.average >= 8)
+  const shuffleTopRated = shuffleShow(topRated, 30)
   const minArrow = 'hidden md:block absolute top-16 w-full'
 
   if (loading) {
@@ -30,7 +32,7 @@ export default function Toprated({ error, shows, loading }) {
                   className='flex overflow-x-scroll overflow-y-hidden scroll-smooth scrollbody'
                   ref={scrollRef}
                 >
-                  {topRated.map((featured) => (
+                  {shuffleTopRated.map((featured) => (
                     <MiniMediaCard key={featured.id} {...featured} />
                   ))}
                 </div>

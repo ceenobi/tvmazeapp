@@ -6,10 +6,12 @@ import {
   IoMdArrowDropleftCircle,
 } from 'react-icons/io'
 import MediaCard from './MediaCard'
+import shuffleShow from '../hooks/shuffleShow'
 
 export default function RunningTV({ error, loading, shows }) {
-  const runningTv = shows.filter((show) => show.status === 'Running')
   const [scroll, scrollRef] = useScroll()
+  const runningTv = shows.filter((show) => show.status === 'Running')
+  const shuffledRunningTv = shuffleShow(runningTv, 30)
 
   if (loading) {
     return <Spinner />
@@ -26,7 +28,7 @@ export default function RunningTV({ error, loading, shows }) {
             className='flex overflow-x-scroll overflow-y-hidden scroll-smooth scrollbody'
             ref={scrollRef}
           >
-            {runningTv.map((running) => (
+            {shuffledRunningTv.map((running) => (
               <MediaCard key={running.id} {...running} />
             ))}
           </div>

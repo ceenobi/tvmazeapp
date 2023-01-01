@@ -38,7 +38,7 @@ export default function TVid() {
   } = usefetchHook(
     `/shows/${tvid}?embed[]=seasons&embed[]=cast&embed[]=episodes`
   )
-  const { data: shows } = usefetchHook('/shows')
+  const { data: shows } = usefetchHook('/shows?page=1')
 
   const showSeasons = () => {
     setActiveBtn('seasons')
@@ -79,12 +79,18 @@ export default function TVid() {
 
   const isActive =
     'uppercase mb-4 tracking-wide text-zinc-300 bg-huluRedB p-2 rounded-md font-medium'
-  const notActive = 'uppercase mb-4 tracking-wide'
+  const notActive = 'uppercase mb-4 tracking-wide font-medium'
 
-  const filterShow = shows.filter(
-    (u) => u?.network?.name === show?.network?.name
+  const filterShow = shows?.filter((u) =>
+    u ? u.genres[0] : null === show?.genres[0]
   )
-  const filterById = filterShow.filter((u) => u?.id !== show?.id)
+  const filterById = filterShow?.filter((u) => u?.id !== show?.id)
+
+  const getSimilarShows = () => {
+    const shuffled = [...filterById].sort(() => 0.5 - Math.random())
+    return shuffled.slice(0, 25)
+  }
+  const arrayOfSimilarShows = getSimilarShows()
 
   if (loading) {
     return <Spinner />
@@ -296,9 +302,9 @@ export default function TVid() {
             </ResponsiveMasonry>
           )}
           <hr className='border-[1px] mt-10' />
-          {filterById.length > 0 ? (
+          {arrayOfSimilarShows.length > 0 ? (
             <>
-              <p className='uppercase mb-4 tracking-wide font-lighter mt-6'>
+              <p className='uppercase mb-4 tracking-wide font-medium mt-6'>
                 You may also like
               </p>
               <div className='relative'>
@@ -306,7 +312,7 @@ export default function TVid() {
                   className='flex overflow-x-scroll overflow-y-hidden scroll-smooth'
                   ref={scrollRef}
                 >
-                  {filterById.map((drama) => (
+                  {arrayOfSimilarShows.map((drama) => (
                     <MiniMediaCard key={drama.id} {...drama} />
                   ))}
                 </div>

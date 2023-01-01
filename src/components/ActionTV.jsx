@@ -6,10 +6,12 @@ import {
   IoMdArrowDropleftCircle,
 } from 'react-icons/io'
 import MiniMediaCard from './MiniMediaCard'
+import shuffleShow from '../hooks/shuffleShow'
 
 export default function ActionTV({ error, loading, shows }) {
-  const actionTv = shows.filter((show) => show.genres[0] === 'Action')
   const [scroll, scrollRef] = useScroll()
+  const actionTv = shows.filter((show) => show.genres[0] === 'Action')
+  const shuffledActionTv = shuffleShow(actionTv, 30)
 
   if (loading) {
     return <Spinner />
@@ -25,7 +27,7 @@ export default function ActionTV({ error, loading, shows }) {
             className='flex overflow-x-scroll overflow-y-hidden scroll-smooth scrollbody'
             ref={scrollRef}
           >
-            {actionTv.map((action) => (
+            {shuffledActionTv.map((action) => (
               <MiniMediaCard key={action.id} {...action} />
             ))}
           </div>

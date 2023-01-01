@@ -6,7 +6,7 @@ import AnimationTV from '../components/AnimationTV'
 import usefetchHook from '../hooks/fetchHook'
 
 export default function Tvshows() {
-  const { error, loading, data: shows } = usefetchHook(`/shows?page=1`)
+  const { error, loading, data: shows } = usefetchHook('/shows?page=1')
   return (
     <>
       <div className='p-12 bg-gradient-to-r from-huluDark to-huluDarkB font-graphik'>

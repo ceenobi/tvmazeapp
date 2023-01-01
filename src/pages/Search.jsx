@@ -34,6 +34,11 @@ export default function Search() {
     navigate({ search: params.toString() })
   }, [query, navigate])
 
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    setQuery(e.target.value)
+  }
+
   return (
     <div className='mx-auto max-w-7xl px-2 mt-6 md:mt-20 font-graphik'>
       <div className='relative'>
@@ -43,7 +48,7 @@ export default function Search() {
           type='text'
           placeholder='Search TV'
           value={query}
-          onChange={(e) => setQuery(e.target.value)}
+          onChange={handleSubmit}
         />
         {query.length > 0 && (
           <AiOutlineClose
