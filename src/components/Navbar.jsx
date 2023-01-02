@@ -24,7 +24,7 @@ export default function Navbar() {
     return () => {
       window.removeEventListener('scroll', showNav)
     }
-  })
+  }, [])
 
   return (
     <div className={showNavbar ? bgStyle : defaultStyle}>
