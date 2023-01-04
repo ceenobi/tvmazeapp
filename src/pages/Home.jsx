@@ -3,9 +3,11 @@ import Hero from '../components/Hero'
 import FeaturedTV from '../components/FeaturedTV'
 import Toprated from '../components/Toprated'
 import usefetchHook from '../hooks/fetchHook'
+import Spinner from '../components/Spinner'
 
 export default function Home() {
-   const { error, loading, data: shows } = usefetchHook('/shows?page=1')
+  const { error, loading, data: shows } = usefetchHook('/shows?page=1')
+
   return (
     <>
       <Hero />
@@ -13,8 +15,10 @@ export default function Home() {
         <h1 className='text-black font-graphik uppercase text-2xl font-medium mb-12'>
           TV Shows
         </h1>
-        <FeaturedTV error={error} loading={loading} shows={shows} />
-        <Toprated error={error} loading={loading} shows={shows} />
+        {loading && <Spinner />}
+        {error && <p>{error.message}</p>}
+        <FeaturedTV shows={shows} />
+        <Toprated shows={shows} />
       </div>
     </>
   )

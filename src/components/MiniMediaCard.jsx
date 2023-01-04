@@ -10,6 +10,7 @@ export default function MiniMediaCard({ id, image, name, genres }) {
             <img
               src={image.original}
               alt={name}
+              loading='lazy'
               className='w-full h-full rounded-xl shadow hover:shadow-2xl-lg hover:border-4 border-zinc-600 hover:transition ease-in-out delay-150 object-inherit'
             />
           </div>

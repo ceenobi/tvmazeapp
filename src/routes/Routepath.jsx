@@ -6,7 +6,7 @@ import {
   Route,
 } from 'react-router-dom'
 import Layout from '../components/Layout'
-import Error from '../pages/Error'
+import Error from '../components/Error'
 const Home = lazy(() => import('../pages/Home'))
 const Tvshows = lazy(() => import('../pages/Tvshows'))
 const TVid = lazy(() => import('../pages/TVid'))
@@ -20,7 +20,7 @@ export default function Routepath() {
         <Route path='tvshows' element={<Tvshows />} />
         <Route path='tvshow/:tvid' element={<TVid />} />
         <Route path='search' element={<Search />} />
-        <Route path='*' element={<Home />} />
+        <Route path='*' element={<Error />} />
       </Route>
     )
   )

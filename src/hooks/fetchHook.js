@@ -5,6 +5,7 @@ export default function usefetchHook(url) {
   const [data, setData] = useState([])
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
+  const [statusCode, setStatusCode] = useState()
   const cache = useRef({})
 
   useEffect(() => {
@@ -17,15 +18,16 @@ export default function usefetchHook(url) {
           const result = cache.current[url]
           setData(result)
         } else {
-          const results = (await HTTP.get(url)).data
+          const results = await HTTP.get(url)
           cache.current[url] = results
-          setData(results)
+          setData(results.data)
+          setStatusCode(results.status)
           if (cancelRequest) return
         }
       } catch (error) {
         setError(error)
         if (cancelRequest) return
-        console.log(error)
+        // console.log(error)
       } finally {
         setLoading(false)
       }
@@ -35,5 +37,5 @@ export default function usefetchHook(url) {
       cancelRequest = true
     }
   }, [url])
-  return { error, data, loading }
+  return { error, data, loading, statusCode }
 }

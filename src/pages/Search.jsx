@@ -38,7 +38,6 @@ export default function Search() {
     e.preventDefault()
     setQuery(e.target.value)
   }
-
   return (
     <div className='mx-auto max-w-6xl xl:max-w-7xl px-2 xl:px-4 mt-6 md:mt-20 font-graphik'>
       <div className='relative mt-20 md:mt-32 '>
@@ -63,7 +62,7 @@ export default function Search() {
       {loading && <Spinner />}
       {error ||
         (results && (
-          <>
+          <div>
             {error && <p>{error.message}</p>}
             {results.length > 0 && (
               <div className='flex items-center justify-between mt-4'>
@@ -78,13 +77,13 @@ export default function Search() {
                 className='mt-10 mx-auto'
               >
                 <Masonry gutter='30px'>
-                  {results?.map((res) => (
+                  {results.map((res) => (
                     <MediaCard key={res.show.id} {...res.show} />
                   ))}
                 </Masonry>
               </ResponsiveMasonry>
             )}
-          </>
+          </div>
         ))}
     </div>
   )

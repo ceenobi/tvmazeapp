@@ -4,9 +4,11 @@ import ActionTV from '../components/ActionTV'
 import ComedyTV from '../components/ComedyTV'
 import AnimationTV from '../components/AnimationTV'
 import usefetchHook from '../hooks/fetchHook'
+import Spinner from '../components/Spinner'
 
 export default function Tvshows() {
   const { error, loading, data: shows } = usefetchHook('/shows?page=1')
+
   return (
     <>
       <div className='p-12 bg-gradient-to-r from-huluDark to-huluDarkB font-graphik'>
@@ -28,10 +30,12 @@ export default function Tvshows() {
         <h1 className='text-black font-graphik uppercase text-2xl font-medium mb-12'>
           TV Shows
         </h1>
-        <RunningTV error={error} loading={loading} shows={shows} />
-        <ActionTV error={error} loading={loading} shows={shows} />
-        <ComedyTV error={error} loading={loading} shows={shows} />
-        <AnimationTV error={error} loading={loading} shows={shows} />
+        {loading && <Spinner />}
+        {error && <p>{error.message}</p>}
+        <RunningTV error={error} shows={shows} />
+        <ActionTV error={error} shows={shows} />
+        <ComedyTV error={error} shows={shows} />
+        <AnimationTV error={error} shows={shows} />
       </div>
     </>
   )

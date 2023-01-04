@@ -1,5 +1,4 @@
 import React from 'react'
-import Spinner from './Spinner'
 import useScroll from '../hooks/useScroll'
 import {
   IoMdArrowDroprightCircle,
@@ -8,21 +7,18 @@ import {
 import MiniMediaCard from './MiniMediaCard'
 import shuffleShow from '../hooks/shuffleShow'
 
-export default function ComedyTV({ error, loading, shows }) {
+export default function ComedyTV({ shows }) {
   const [scroll, scrollRef] = useScroll()
   const comedyTv = shows.filter((show) => show.genres[1] === 'Comedy')
   const shuffledComedyTv = shuffleShow(comedyTv, 30)
 
-  if (loading) {
-    return <Spinner />
-  } else if (error || shows) {
-    return (
-      <div className='mb-12'>
-        <p className='font-graphik uppercase mb-4 font-medium tracking-wide'>
-          comedy
-        </p>
+  return (
+    <div className='mb-12'>
+      <p className='font-graphik uppercase mb-4 font-medium tracking-wide'>
+        comedy
+      </p>
 
-        {error && <p>{error.message}</p>}
+      {shuffledComedyTv.length > 0 ? (
         <div className='relative'>
           <div
             className='flex overflow-x-scroll overflow-y-hidden scroll-smooth scrollbody'
@@ -47,8 +43,9 @@ export default function ComedyTV({ error, loading, shows }) {
             </div>
           </div>
         </div>
-      </div>
-    )
-  }
-  return <p className='mt-20 p-10'>Something went wrong</p>
+      ) : (
+        <p>Something went wrong</p>
+      )}
+    </div>
+  )
 }

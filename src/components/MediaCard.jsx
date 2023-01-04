@@ -10,6 +10,7 @@ export default function MediaCard({ id, image, name, genres }) {
           <img
             src={image?.original}
             alt={name}
+            loading='lazy'
             className='w-full h-full rounded-lg hover:border-4 border-zinc-700 hover:transition ease-in-out delay-150'
           />
           <div className='absolute bottom-0 left-0 px-4 w-full h-24 bg-slate-900 rounded-b-lg opacity-40 z-0' />

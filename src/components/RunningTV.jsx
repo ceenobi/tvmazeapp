@@ -1,5 +1,4 @@
 import React from 'react'
-import Spinner from '../components/Spinner'
 import useScroll from '../hooks/useScroll'
 import {
   IoMdArrowDroprightCircle,
@@ -8,21 +7,17 @@ import {
 import MediaCard from './MediaCard'
 import shuffleShow from '../hooks/shuffleShow'
 
-export default function RunningTV({ error, loading, shows }) {
+export default function RunningTV({ shows }) {
   const [scroll, scrollRef] = useScroll()
   const runningTv = shows.filter((show) => show.status === 'Running')
   const shuffledRunningTv = shuffleShow(runningTv, 30)
 
-  if (loading) {
-    return <Spinner />
-  } else if (error || shows) {
-    return (
-      <div className='mb-12'>
-        <p className='font-graphik uppercase mb-4 font-medium tracking-wide'>
-          ON AIR
-        </p>
-
-        {error && <p>{error.message}</p>}
+  return (
+    <div className='mb-12'>
+      <p className='font-graphik uppercase mb-4 font-medium tracking-wide'>
+        ON AIR
+      </p>
+      {shuffledRunningTv?.length > 0 ? (
         <div className='relative'>
           <div
             className='flex overflow-x-scroll overflow-y-hidden scroll-smooth scrollbody'
@@ -47,8 +42,9 @@ export default function RunningTV({ error, loading, shows }) {
             </div>
           </div>
         </div>
-      </div>
-    )
-  }
-  return <p className='mt-20 p-10'>Something went wrong</p>
+      ) : (
+        <p>Something went wrong</p>
+      )}
+    </div>
+  )
 }
