@@ -11,7 +11,6 @@ export default function Search() {
   const [query, setQuery] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
-  const [page, setPage] = useState(1)
   const [filterResult, setFilterResult] = useState([])
   const navigate = useNavigate()
 
