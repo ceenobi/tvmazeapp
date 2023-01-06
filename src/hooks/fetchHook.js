@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'react'
-import HTTP from '../api/fetchApi'
+import HTTP from '../api/config'
 
 export default function usefetchHook(url) {
   const [data, setData] = useState([])
@@ -27,7 +27,7 @@ export default function usefetchHook(url) {
       } catch (error) {
         setError(error)
         if (cancelRequest) return
-        // console.log(error)
+        console.log(error)
       } finally {
         setLoading(false)
       }
