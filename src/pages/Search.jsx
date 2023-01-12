@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import usefetchHook from '../hooks/fetchHook'
 import Spinner from '../components/Spinner'
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
 import { useNavigate } from 'react-router-dom'

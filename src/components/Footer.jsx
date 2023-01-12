@@ -37,7 +37,7 @@ export default function Footer() {
     { name: 'features', id: 4 },
   ]
   return (
-    <div className='bg-slate-100  py-6 mt-10'>
+    <div className='bg-slate-100 py-6 mt-10'>
       <div className='mx-auto max-w-6xl px-2 flex flex-col justify-center h-full font-graphik'>
         <div className='flex space-x-4 mb-6'>
           {links.map((item) => (
