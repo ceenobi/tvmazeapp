@@ -31,7 +31,7 @@ export default function Navbar() {
       <div className='mx-auto max-w-6xl xl:max-w-7xl px-2 xl:px-4 h-14 md:h-20 flex justify-between items-center font-graphik'>
         <NavLink
           to='/'
-          className='text-3xl text-teal-400 font-bold leading-16 z-30'
+          className='text-3xl text-teal-400 font-bold leading-16'
         >
           TVMAZE
         </NavLink>
