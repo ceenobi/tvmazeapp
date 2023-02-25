@@ -11,7 +11,7 @@ export default function Tvshows() {
 
   return (
     <>
-      <div className='p-12 bg-gradient-to-r from-huluDark to-huluDarkB font-graphik'>
+      <div className='p-20 bg-gradient-to-r from-huluDark to-huluDarkB font-graphik'>
         <div className='mx-auto max-w-6xl xl:max-w-7xl px-2 xl:px-4 flex flex-col space-y-4 text-center'>
           <h5 className='uppercase font-bold text-zinc-300 mt-16'>
             view our collection
@@ -32,10 +32,10 @@ export default function Tvshows() {
         </h1>
         {loading && <Spinner />}
         {error && <p>{error.message}</p>}
-        <RunningTV error={error} shows={shows} />
-        <ActionTV error={error} shows={shows} />
-        <ComedyTV error={error} shows={shows} />
-        <AnimationTV error={error} shows={shows} />
+        <RunningTV shows={shows} />
+        <ActionTV shows={shows} />
+        <ComedyTV shows={shows} />
+        <AnimationTV shows={shows} />
       </div>
     </>
   )

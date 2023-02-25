@@ -40,6 +40,7 @@ export default function TVid() {
   } = usefetchHook(
     `/shows/${tvid}?embed[]=seasons&embed[]=cast&embed[]=episodes`
   )
+  console.log(show)
   const { data: shows } = usefetchHook('/shows?page=1')
 
   const showSeasons = () => {
@@ -97,7 +98,7 @@ export default function TVid() {
   return (
     <>
       {loading && <Spinner />}
-      {statusCode !== 200 && <Error />}
+      {/* {statusCode !== 200 && <Error />} */}
       {error ||
         (show && (
           <>
